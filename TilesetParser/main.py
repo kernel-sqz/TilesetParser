@@ -16,6 +16,8 @@ def main():
                         "--similarity", help='Similarity level for openCV (default: 0.8)', type=float, default=0.8)
     parser.add_argument("-e",
                         "--extension", help='Extension of the files (default: bmp)', type=str, default='bmp')
+    parser.add_argument("-t",
+                        "--tiles_per_tileset", help='How many tiles are in single tileset (default: 12)', type=int, default='12')
     args = parser.parse_args()
 
     target_dir = Path(args.source_image_path)

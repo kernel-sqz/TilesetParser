@@ -18,7 +18,7 @@ def split_into_tiles(image, tile_size=(32, 32)):
     return tiles
 
 
-def find_matching_tile(source_image_path, tiles_folder, tile_size, similarity, extension):
+def find_matching_tile(source_image_path, tiles_folder, tile_size, similarity, extension, tiles_per_tileset):
     source_image = cv2.imread(source_image_path, cv2.IMREAD_COLOR)
     assert source_image.shape[:2] == (
         tile_size, tile_size), f"Source image must be {tile_size}px x {tile_size}px"
@@ -33,8 +33,8 @@ def find_matching_tile(source_image_path, tiles_folder, tile_size, similarity, e
 
                 for i, tile in enumerate(tiles):
                     if tile.shape[:2] == (tile_size, tile_size):
-                        row = i // 12
-                        col = i % 12
+                        row = i // tiles_per_tileset
+                        col = i % tiles_per_tileset
                         print(
                             f" Current file: {file} | Current row: {row} | Current column: {col}")
                         score = compare_images(source_image, tile)
