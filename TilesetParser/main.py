@@ -27,7 +27,7 @@ def main():
         return print("Error: Selected path does not exist!")
 
     return find_matching_tile(args.source_image_path, args.tiles_folder,
-                              args.size, args.similarity, args.extension)
+                              args.size, args.similarity, args.extension, args.tiles_per_tileset)
 
 
 if __name__ == '__main__':
