@@ -13,6 +13,10 @@ pip install TilesetParser
 
 ## How to use?
 
+```
+tilesetparser /path/to/source/image.bmp /path/to/folder_with_tilesets
+```
+
 Program takes a few arguments:
 
 ### positional arguments:
