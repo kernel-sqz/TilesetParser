@@ -1,2 +1,5 @@
 /venv
 /TilesetParser/src/__pycache__
+/dist
+/build
+/TilesetParser.egg-info
