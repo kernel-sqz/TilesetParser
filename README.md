@@ -36,3 +36,5 @@ Program takes a few arguments:
   > Similarity level for openCV (default: 0.8)
 - -e, --extension
   > Extension of the files (default: bmp)
+- t, --tiles_per_tileset
+  > How many tiles are in single tileset (default: 12)
