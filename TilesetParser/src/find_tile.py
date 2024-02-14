@@ -29,7 +29,8 @@ def find_matching_tile(source_image_path, tiles_folder, tile_size, similarity, e
                 tile_path = os.path.join(root, file)
                 tile_image = cv2.imread(tile_path, cv2.IMREAD_COLOR)
 
-                tiles = split_into_tiles(tile_image)
+                tiles = split_into_tiles(
+                    tile_image, tile_size=(tile_size, tile_size))
 
                 for i, tile in enumerate(tiles):
                     if tile.shape[:2] == (tile_size, tile_size):
