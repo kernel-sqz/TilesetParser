@@ -1,4 +1,4 @@
-from src.find_tile import find_matching_tile
+from TilesetParser.src.find_tile import find_matching_tile
 import argparse
 from pathlib import Path
 
