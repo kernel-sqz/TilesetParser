@@ -9,7 +9,7 @@ def compare_images(img1, img2):
     return score
 
 
-def split_into_tiles(image, tile_size=(32, 32)):
+def split_into_tiles(image, tile_size):
     tiles = []
     for y in range(0, image.shape[0], tile_size[1]):
         for x in range(0, image.shape[1], tile_size[0]):

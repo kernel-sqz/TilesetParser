@@ -7,7 +7,7 @@ setup(
     name='TilesetParser',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version='1.0.3.2',
+    version='1.0.3.3',
     packages=find_packages(),
     install_requires=[
         'numpy==1.26.4',
