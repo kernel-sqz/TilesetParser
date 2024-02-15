@@ -5,3 +5,5 @@
 /TilesetParser.egg-info
 token.txt
 .DS_Store
+/TilesetParser/.DS_Store
+/TilesetParser/src/.DS_Store
