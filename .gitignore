@@ -4,3 +4,4 @@
 /build
 /TilesetParser.egg-info
 token.txt
+.DS_Store
