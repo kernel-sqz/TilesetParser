@@ -7,11 +7,12 @@ setup(
     name='TilesetParser',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version='1.0.3.3',
+    version='1.0.4',
     packages=find_packages(),
     install_requires=[
         'numpy==1.26.4',
-        'opencv-python==4.9.0.80'
+        'opencv-python==4.9.0.80',
+        "pillow==10.2.0"
     ],
     entry_points={
         'console_scripts': [

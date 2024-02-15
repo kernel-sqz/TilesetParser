@@ -17,6 +17,8 @@ pip install TilesetParser
 tilesetparser /path/to/source/image.bmp /path/to/folder_with_tilesets
 ```
 
+After parsing every file, preview window will appear. You can browse tilesets that program found similar to the source tile.
+
 Program takes a few arguments:
 
 ### positional arguments:

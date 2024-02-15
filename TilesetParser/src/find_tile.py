@@ -1,5 +1,6 @@
 import cv2
 import os
+from .gui import show_images
 
 
 def compare_images(img1, img2):
@@ -18,10 +19,20 @@ def split_into_tiles(image, tile_size):
     return tiles
 
 
+def remove_duplicates_by_name(objects):
+    unique = {}
+    for obj in objects:
+        if obj['file'] not in unique:
+            unique[obj['file']] = obj
+    return sorted(list(unique.values()), key=lambda x: float(x['similarity'].rstrip('%')), reverse=True)
+
+
 def find_matching_tile(source_image_path, tiles_folder, tile_size, similarity, extension, tiles_per_tileset):
     source_image = cv2.imread(source_image_path, cv2.IMREAD_COLOR)
     assert source_image.shape[:2] == (
         tile_size, tile_size), f"Source image must be {tile_size}px x {tile_size}px"
+
+    results = []
 
     for root, dirs, files in os.walk(tiles_folder):
         for file in files:
@@ -40,10 +51,18 @@ def find_matching_tile(source_image_path, tiles_folder, tile_size, similarity, e
                             f" Current file: {file} | Current row: {row} | Current column: {col}")
                         score = compare_images(source_image, tile)
                         if score > similarity:
-
+                            result_object = {
+                                "file": tile_path,
+                                "input_tile": source_image_path,
+                                "similarity": f"{'{:.2f}'.format(score * 100)}%"
+                            }
+                            if result_object not in results:
+                                results.append(result_object)
                             print(
                                 f"Tile was found at: {tile_path} | position: (row: {row}, col: {col}) | Similarity level: {'{:.2f}'.format(score * 100)}%")
-                            return tile_path, (row, col)
+        tiles_list = remove_duplicates_by_name(results)
+        print(tiles_list)
+        return show_images(tiles_list)
 
     print("Tile not found.")
     return None, None
