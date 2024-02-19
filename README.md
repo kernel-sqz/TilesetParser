@@ -21,6 +21,10 @@ After parsing every file, preview window will appear. You can browse tilesets th
 
 Program takes a few arguments:
 
+## Algorithms
+
+By default TilesetParser calculates historgrams for input tile and every tile in tileset. You can use SSIM algorithm, whitch gives far more accurate results, but takes a bit more time.
+
 ### positional arguments:
 
 - source_image_path
@@ -38,5 +42,7 @@ Program takes a few arguments:
   > Similarity level for openCV (default: 0.8)
 - -e, --extension
   > Extension of the files (default: bmp)
-- t, --tiles_per_tileset
+- -t, --tiles_per_tileset
   > How many tiles are in single tileset (default: 12)
+- -d, --ssim_algorithm
+  > Use SSIM algorithm (default: false)

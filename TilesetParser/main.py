@@ -1,4 +1,4 @@
-from TilesetParser.src.find_tile import find_matching_tile
+from TilesetParser.src.find_tile import find_matching_tile, find_matching_tile_ssim
 import argparse
 from pathlib import Path
 
@@ -18,16 +18,24 @@ def main():
                         "--extension", help='Extension of the files (default: bmp)', type=str, default='bmp')
     parser.add_argument("-t",
                         "--tiles_per_tileset", help='How many tiles are in single tileset (default: 12)', type=int, default='12')
+    parser.add_argument("-d",
+                        "--ssim_algorithm", help='Use SSIM algorithm (default: false)', type=bool, default='false')
+
     args = parser.parse_args()
 
     target_dir = Path(args.source_image_path)
-    source_dir = Path(args.source_image_path)
+    source_dir = Path(args.tiles_folder)
+
+    ssim = Path(args.source_image_path)
 
     if not target_dir or not source_dir:
         return print("Error: Selected path does not exist!")
-
-    return find_matching_tile(args.source_image_path, args.tiles_folder,
-                              args.size, args.similarity, args.extension, args.tiles_per_tileset)
+    else:
+        if ssim:
+            return find_matching_tile_ssim(args.source_image_path, args.tiles_folder,
+                                           args.size, args.similarity, args.extension)
+        return find_matching_tile(args.source_image_path, args.tiles_folder,
+                                  args.size, args.similarity, args.extension, args.tiles_per_tileset)
 
 
 if __name__ == '__main__':
