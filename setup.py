@@ -7,7 +7,7 @@ setup(
     name='TilesetParser',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version='1.0.5',
+    version='1.0.5.2',
     packages=find_packages(),
     install_requires=[
         "certifi==2023.7.22",
