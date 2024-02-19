@@ -114,6 +114,6 @@ def calculate_ssim(img1, img2):
     win_size = 3
     ssim_score = ssim(img1, img2, win_size=win_size, multichannel=True)
     score = ssim_score * 2.3
-    if '{:.2f}'.format(score * 100) > 100:
+    if int('{:.2f}'.format(score * 100)) > 100:
         score = 1.00
     return score
